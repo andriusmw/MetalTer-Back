@@ -10,7 +10,7 @@ const populateDB = async () => {
 
     await pool.query(
       `INSERT INTO users (email, password, role, name) VALUES 
-      ("admin@email.com", ?, "admin", "admin");`,
+      ("admin@email.com", ?, "band", "FUCKING METALLICA HELL YEAH M*THERF*CKERS");`,
       [await bcrypt.hash("123456", 10)]
     );
 

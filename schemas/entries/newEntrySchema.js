@@ -12,6 +12,7 @@ const newEntrySchema = Joi.object({
         400
       )
     ),
+    
   description: Joi.string()
     .min(4)
     .max(500)
@@ -34,33 +35,31 @@ const newEntrySchema = Joi.object({
         ),
 
 
-        city: Joi.string()
+        video_url: Joi.any()
+        .optional()
+        .error(
+          generateError(
+            "video_url field error",
+            400
+          )
+        ),
+
+        country: Joi.string()
         .min(4)
         .max(100)
         .required()
         .error(
           generateError(
-            "City is required and must have between 4 and 100 characters",
+            "country field error",
             400
           )
-        ),  
+        ),
 
-        neighborhood: Joi.string()
-        .min(4)
-        .max(100)
-        .required()
-        .error(
-          generateError(
-            "NEIGHBORHOOD is required and must have between 4 and 100 characters",
-            400
-          )
-        ), 
-
-        status: Joi.string().valid("open","closed")
+        category: Joi.string().valid("News","Concerts","Album","VIDEO")
       
         .error(
           generateError(
-            "STATUS field is not valid",
+            "category field is not valid. it must be one of these: 'News' , 'Concerts', 'Album' or 'VIDEO'",
             400
           )
         ),

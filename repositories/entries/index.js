@@ -1,5 +1,5 @@
 const insertEntry = require("./insertEntry");
-const selectEntryByBarrio = require("./selectEntryByBarrio");
+const selectEntryByCountry = require("./selectEntryByCountry");
 const updateEntryById = require("./updateEntryById");
 const selectEntry = require("./selectEntry");
 const selectEntryById = require("./selectEntryById");
@@ -8,7 +8,7 @@ const selectEntryByIdWVotes = require("./selecEntryByIdWVotes")
 
 module.exports = {
   insertEntry,
-  selectEntryByBarrio,
+  selectEntryByCountry,
   updateEntryById,
   selectEntry,
   selectEntryById,

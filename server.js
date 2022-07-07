@@ -27,7 +27,7 @@ const {
 
 const {
   getEntry,
-  getEntryByBarrio,
+  getEntryByCountry,
   editEntry,
   createEntry,
   deleteEntry,
@@ -53,18 +53,17 @@ app.use("/uploads", express.static("./uploads")); //esta linea es para que se pu
 app.post("/users", registerUser); //registrar usuario
 app.get("/users/activate/:registrationCode", activateUser); //activar usuario
 app.post("/login", loginUser); //loguear usuario
-app.post("/entries", validateAuth, checkAdmin, createEntry);
+app.post("/entries", validateAuth, createEntry);
 app.patch("/entries/:idEntry", validateAuth, checkAdmin, editEntry); //actualizar datos entrada open close
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser); //borrar usuarios
 app.delete(
   "/entries/:idEntry",
   validateAuth,
-  checkAdmin,
   deleteVote,
   deleteEntry
 );
 app.get("/entries", getEntry); //cargar entradas
-app.get("/entries/:barrioID", getEntryByBarrio); //cargar entradas por barrioid
+app.get("/entries/:countryID", getEntryByCountry); //cargar entradas por barrioid
 app.get("/entries/votes/:id", getEntryById); //cargar una entrada por IdEntry
 app.get("/users/profile", validateAuth, getUserProfile); // cargar perfil de usuario logueado
 app.get("/users/:email", getUserByEmail); //cargar usuario por email

@@ -17,7 +17,7 @@ const createEntry = async (req, res, next) => {
     await newEntrySchema.validateAsync(req.body);
     //---------------------------------------------
 
-    const { title, description, photo, city, neighborhood, status } = req.body;
+    const { title, description, photo, video_url, country, category } = req.body;
     //recogemos del body los parametros
 
 //-----------------------CODIGO NUEVO PARA IMGANES ------------------------------------------
@@ -45,12 +45,12 @@ if (req.files && req.files.image ) {
 
 
 //----------------------------------------------------------------------------
-    const insertId = await insertEntry({ title, description, imageFileName, city, neighborhood, status, userId });
+    const insertId = await insertEntry({ title, description, imageFileName, video_url, country, category, userId });
     //pasamos los paramretros a inserentry y lo guardamos en la constante insertId
 
     res.status(201).send({
       status: "ok",
-      data: { id:insertId, title, description, photo: imageFileName, city, neighborhood, status, userId },
+      data: { id:insertId, title, description, photo: imageFileName, video_url, country, category, userId },
     });
   } catch (error) {
     next(error);
