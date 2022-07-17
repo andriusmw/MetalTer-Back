@@ -4,16 +4,16 @@ const updateEntryById = async ({
   title,
   description,
   imageFileName,
-  city,
-  neighborhood,
-  status,
+  category,
+  country,
+  video_url,
   id,
 }) => {
   const pool = getPool();
 
   const [{ affectedRows }] = await pool.query(
-    "UPDATE entries SET title = ?, description = ?, photo = ?, city = ?, neighborhood = ?, status = ? WHERE id = ?",
-    [title, description, imageFileName, city, neighborhood, status, id]
+    "UPDATE entries SET title = ?, description = ?, photo = ?, category = ?, country = ?, video_url = ? WHERE id = ?",
+    [title, description, imageFileName, category, country, video_url, id]
   );
 
   return affectedRows;
