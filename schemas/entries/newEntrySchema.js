@@ -45,7 +45,7 @@ const newEntrySchema = Joi.object({
         ),
 
         country: Joi.string()
-        .min(4)
+        .min(2)
         .max(100)
         .required()
         .error(
